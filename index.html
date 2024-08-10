@@ -1,380 +1,349 @@
 <!DOCTYPE html>
 <html lang="en">
+  
+<!-- HTML -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AfterTheRainGames</title>
-    <link rel="icon" type="image/png" href="Images/ATRLogo.png">
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #000;
-            color: white;
-            overflow-x: hidden; /* Hide horizontal scrollbar */
-        }
+  <meta charset="UTF-8">
+  <meta="viewport" content="width=device-width, inital-scale=1.0"> 
 
-        /* Sticky Navigation Bar */
-        .navbar {
-            position: sticky;
-            top: 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #333;
-            padding: 10px 20px;
-            z-index: 1000;
-        }
+<!-- CSS -->
+  <style>
+    body{
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: white;
+    overflow-x: hidden;
+    cursor: url('images/Mouse.png'), auto;
+    }
+    
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    height: 100%;
+    z-index: -1;
+}
 
-        .navbar-left {
-            display: flex;
-            align-items: center;
-        }
+.homeHeader {
+    padding: 30px;
+	position: relative;
+	z-index: 1;
+	text-align: center;
+}
 
-        .dropdown {
+.homeHeader h{
+    font-weight: bold;
+    padding: 20px;
+}
+
+.animatedText {
+	font-size:2em;
+	color: #FEC54B;
+	animation: text-animation 3s infinite;}
+
+@keyframes text-animation {
+	0%, 100% {
+		color: white;
+		}
+	50% {
+		color: yellow;
+		}
+	}
+
+.Sample{
+      display: flex;
+      justify-content: center;
+      gap: 20px;}
+
+    .Sample img{
+      width: 10%;
+      height: auto;
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px white;
+      transition: transform 0.3s ease;}
+    
+    .Sample img:hover{
+      transform: scale(1.2);}
+
+.Games {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    text-align:center;
+    margin: 40px;
+    flex-direction: column;
+}
+
+.Games h {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.gameContainer {
+    display: flex;
+    justify-content: center; /* Centers the image and text horizontally */
+    margin-bottom: 40px;
+}
+
+.gameContainer img {
+    width: 30%;
+    height: auto;
+    margin-right: 20px;
+    box-shadow: 0 0 0 2px #FEC54B;
+}
+
+.gameContainer .gameText {
+    width: 30%
+}
+
+.gameContainer .gameText h{
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.description{
+    font-size: 1.5em;
+}
+    
+.contact{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+
+.contact h{
+    font-weight: bold;
+    font-size:2em;
+}
+{}
+ .btn {
+            font-family: Arial, Helvetica, sans-serif;
+            text-transform: uppercase;
+            text-decoration: none; /* Remove underline from link */
+            margin-bottom: 20px;
+        }
+        
+        .btn:hover .btn-slide-show-text1 {
+            margin-left: 65px;
+        }
+        
+        .btn-flip-side {
+            height: 50px;
+            width: 200px;
             position: relative;
-            display: inline-block;
-        }
-
-        .dropbtn {
-            background-color: transparent;
-            color: white;
-            font-size: 16px;
-            border: none;
+            transform-style: preserve-3d;
+            transition: 0.25s;
+            transform: rotateX(-90deg);
             cursor: pointer;
         }
-
-        .dropdown-content {
-            display: none;
+        
+        .btn-flip-side > span {
+            width: 100%;
+            height: 100%;
             position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1000;
-        }
-
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
+            box-sizing: border-box;
+            line-height: 50px;
+            text-align: center;
             display: block;
         }
-
-        .dropdown-content a:hover {
-            background-color: #f1f1f1;
+        
+        .btn-flip-side > span:first-child {
+            transform: translateZ(30px);
+        }
+        
+        .btn-flip-side > span:nth-child(2) {
+            color: #000;
+            font-weight: bold;
+            transform: rotateX(90deg) translateZ(30px);
+        }
+        
+        .btn-flip-side--orange > span {
+            border: 5px solid #FEC54B;
+        }
+        
+        .btn-flip-side--orange > span:first-child {
+            color: #FEC54B;
+            font-weight: bold;
+        }
+        
+        .btn-flip-side--orange > span:nth-child(2) {
+            background: #FEC54B;
+        }
+        
+        .btn-flip-side:hover {
+            transform: rotateX(0);
         }
 
-        .navbar-center {
-            flex: 1;
-            text-align: center;
-        }
-
-        .logo {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-        }
-
-        .navbar-right {
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-link {
-            color: white;
-            text-decoration: none;
-            padding: 10px;
-            border: 1px solid white;
-            border-radius: 5px;
-        }
-
-        .nav-link:hover {
-            background-color: white;
-            color: black;
-        }
-
-        /* Additional existing styles */
-        .scroll-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100vh; /* Set height to viewport height */
-        }
-
-        canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
-        .container {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .animated-text {
-            font-size: 2em;
-            color: white;
-            animation: text-animation 3s infinite;
-        }
-
-        @keyframes text-animation {
-            0%, 100% {
-                color: white;
-            }
-            50% {
-                color: yellow;
-            }
-        }
-
-        .image-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-        }
-
-        .image-item {
-            position: relative;
-            width: 100px;
-            height: 100px;
-            background-color: transparent;
-            margin: 0 10px;
-            transition: transform 0.3s;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 2px solid white;
-        }
-
-        .image-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            border-radius: 50%;
-            transition: transform 0.3s;
-        }
-
-        .image-item video {
-            display: none;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .image-item:hover img {
-            transform: scale(1.2);
-        }
-
-        .image-item:hover video {
-            display: block;
-        }
-
-        .contact-section {
-            margin-top: 40px;
-        }
-
-        .contact-email {
-            font-size: 1.2em;
-            margin: 20px 0;
-        }
-
-        .game-section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            margin: 20px 0;
-        }
-
-        .game-section img {
-            width: 400px;
-            height: auto;
-            margin-right: 20px;
-            border: 2px solid white; /* White outline */
-        }
-
-        .game-section h3 {
-            margin: 0 0 10px 0;
-        }
-
-        .game-section ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .game-section ul li {
-            margin-bottom: 10px;
-        }
-
-        .upcoming-section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            margin: 20px 0;
-        }
-
-        .upcoming-section img {
-            width: 200px;
-            height: auto;
-            margin-right: 20px;
-        }
-
-        .upcoming-section h3 {
-            margin: 0 0 10px 0;
-        }
-    </style>
+  </style>
 </head>
+  
 <body>
-    <canvas id="rainCanvas"></canvas>
-    <div class="navbar">
-        <div class="navbar-left">
-            <!-- Hamburger Menu for Dropdown -->
-            <div class="dropdown">
-                <button class="dropbtn" onclick="toggleDropdown()">☰</button>
-                <div class="dropdown-content" id="navbarDropdown">
-                    <a href="#" onclick="scrollToSection('skateSection'); closeDropdown()">Skate</a>
-                    <a href="#" onclick="scrollToSection('syringeSection'); closeDropdown()">Syringe</a>
-                    <a href="#" onclick="scrollToSection('turtleSection'); closeDropdown()">Turtle</a>
-                    <a href="https://acornex.github.io/SpeedRunning/" target="_blank">Speed Running</a>
-                </div>
-            </div>
+
+   <title>AfterTheRainGames</title>
+   <canvas id="rainCanvas"></canvas>
+  
+  <!--
+  <div class="dropdown">
+    <button class="dropbtn" onClick="toggleDropdown()">☰</button>
+    <a href="#" onclick="scrollToSection('skateSection')">Skate</a>
+    <a href="#" onclick="scrollToSection('syringeSection')">Syringe</a>
+    <a href="#" onclick="scrollToSection('turtleSection')">Turtle</a>
+  </div>
+  -->
+  
+ <div class="homeHeader">
+    <h class="animatedText">After The Rain Games</h>
+    <p> Welcome to After The Rain Games.</p>
+    <p> I'm a solo Indie Dev passionate about making games people will enjoy. </p>
+ </div>
+
+ <div class="Sample">
+    <img src="Images/Dessert.png" alt="Dessert" onclick="scrollToSection('dessertSection')">
+    <img src="Images/Skate.png" alt="Skate" onclick="scrollToSection('skateSection')">
+    <img src="Images/Syringe.png" alt="Syringe" onclick="scrollToSection('syringeSection')">
+    <img src="Images/Turtle.png" alt="Turtle" onclick="scrollToSection('turtleSection')">
+ </div>
+    
+ <div class="Games">
+    <h>GAMES</h>
+    <p><a href="https://aftertheraingames.itch.io" style="color: #FEC54B;">aftertheraingames.itch.io</a></p>
+ </div>
+
+ <div class="dessertGame gameContainer" id="dessertSection">
+    <img src="Images/Dessert.png" alt="Dessert">
+    <div class="gameText">
+        <h>Dessert Detective</h>
+        <p>3D Escape Room/Puzzle Game</p>
+
+      <a href="https://aftertheraingames.itch.io/dessert-detective" class="btn">
+        <div class="btn btn-flip-side btn-flip-side--orange"> 
+            <span>Click Me</span> 
+            <span>Play It Here</span> 
         </div>
-        <div class="navbar-center">
-            <!-- Logo -->
-            <img src="Images/ATRLogo.png" alt="ATR Logo" class="logo">
+      </a>
+
+      <a href="https://github.com/AfterTheRainGames/DessertDetective" class="btn">
+        <div class="btn btn-flip-side btn-flip-side--orange"> 
+            <span>Click Me</span> 
+            <span>GitHub</span> 
         </div>
-        <div class="navbar-right">
-            <!-- Navigation Link -->
-            <a href="https://acornex.github.io/SpeedRunning/" class="nav-link" target="_blank">Speed Running</a>
-        </div>
+      </a>
+
+      <div class="description">
+      <p>
+      Solve the various riddles of Dessert Mansion to uncover where CakeMan is hiding and what secret he has in store
+      </p>
+      </div>
+
     </div>
+ </div>
 
-    <div class="scroll-container">
-        <div class="container">
-            <h1 class="animated-text">After The Rain Games</h1>
-            <div class="about-section">
-                <h2>About</h2>
-                <p>Welcome to After The Rain Games!<br>
-                I'm a solo indie game developer with a passion for making games.</p>
-            </div>
-            <div class="image-container">
-                <div class="image-item" onclick="scrollToSection('skateSection')">
-                    <img id="skateImage" src="Images/Skate.png" alt="Skate">
-                    <video id="skateVideo" class="video-item" loop>
-                        <source src="Videos/Skate.mp4" type="video/mp4">
-                        <source src="Videos/Skate.webm" type="video/webm">
-                    </video>
-                </div>
-                <div class="image-item" onclick="scrollToSection('syringeSection')">
-                    <img src="Images/Syringe.png" alt="Syringe">
-                    <video id="syringeVideo" class="video-item" loop>
-                        <source src="Videos/Syringe.mp4" type="video/mp4">
-                        <source src="Videos/Syringe.webm" type="video/webm">
-                    </video>
-                </div>
-                <div class="image-item" onclick="scrollToSection('turtleSection')">
-                    <img src="Images/Turtle.png" alt="Turtle">
-                    <video id="turtleVideo" class="video-item" loop>
-                        <source src="Videos/Turtle.mp4" type="video/mp4">
-                        <source src="Videos/Turtle.webm" type="video/webm">
-                    </video>
-                </div>
-            </div>
-            <div class="contact-section">
-                <h2>Contact Me</h2>
-                <p class="contact-email">atrgames.contact@gmail.com</p>
-            </div>
-            <div class="game-section" id="skateSection">
-                <img src="Images/Skate.png" alt="Skate">
-                <div>
-                    <h3>Skate N' Peel - 3D Trickmaster Game</h3>
-                    <h4>Desert Game Jam (June 19th to June 21st)</h4>
-                    <p><a href="https://aftertheraingames.itch.io/skate-n-peel" style="color: yellow; text-decoration: none;">Play it here</a></p>
-                    <ul>
-                        <li>Feature 1</li>
-                        <li>Feature 2</li>
-                        <li>Feature 3</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="game-section" id="syringeSection">
-                <img src="Images/Syringe.png" alt="Syringe">
-                <div>
-                    <h3>Syringe Sprinter - Fast-paced horror game</h3>
-                    <h4>Light Game Jam (June 7th to June 10th)</h4>
-                    <p><a href="https://aftertheraingames.itch.io/syringe-sprinter" style="color: yellow; text-decoration: none;">Play it here</a></p>
-                    <ul>
-                        <li>Feature 1</li>
-                        <li>Feature 2</li>
-                        <li>Feature 3</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="game-section" id="turtleSection">
-                <img src="Images/Turtle.png" alt="Turtle">
-                <div>
-                    <h3>Turtle Golf - Physics-Based Puddle Jumping Adventure</h3>
-                    <h4>Ocean Game Jam (May 24th to May 27th)</h4>
-                    <p><a href="https://aftertheraingames.itch.io/turtle-golf" style="color: yellow; text-decoration: none;">Play it here</a></p>
-                    <ul>
-                        <li>Feature 1</li>
-                        <li>Feature 2</li>
-                        <li>Feature 3</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="upcoming-section">
-                <img src="Images/Upcoming.png" alt="Upcoming">
-                <div>
-                    <h3>Upcoming Projects</h3>
-                    <p>Dessert Game Jam (June 19th to June 21st)</p>
-                </div>
-            </div>
+ <div class="skateGame gameContainer" id="skateSection">
+    <img src="Images/Skate.png" alt="Skate">
+    <div class="gameText">
+        <h>Skate N' Peel</h>
+        <p>3D Trick Based Skateboarding Platformer</p>
+
+              <a href="https://aftertheraingames.itch.io/skate-n-peel" class="btn">
+        <div class="btn btn-flip-side btn-flip-side--orange"> 
+            <span>Click Me</span> 
+            <span>Play It Here</span> 
         </div>
+      </a>
+
+      <a href="https://github.com/AfterTheRainGames/SkateNPeel" class="btn">
+        <div class="btn btn-flip-side btn-flip-side--orange"> 
+            <span>Click Me</span> 
+            <span>GitHub</span> 
+        </div>
+      </a>
+
+      <div class="description">
+        <p>
+        KickFlip, Pop Shove It, and Varial Flip for the Lemon Crew to get enough cash for the board show
+        </p>
+      </div>
+
     </div>
+ </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const videos = document.querySelectorAll('.video-item');
+ <div class="syringeGame gameContainer" id="syringeSection">
+    <img src="Images/Syringe.png" alt="Syringe">
+    <div class="gameText">
+        <h>Syringe Sprinter</h>
+        <p>Fast-Paced Horror Game</p>
 
-            videos.forEach(video => {
-                const image = video.previousElementSibling;
+      <a href="https://aftertheraingames.itch.io/syringe-sprinter" class="btn">
+        <div class="btn btn-flip-side btn-flip-side--orange"> 
+            <span>Click Me</span> 
+            <span>Play It Here</span> 
+        </div>
+      </a>
 
-                video.parentElement.addEventListener('mouseenter', () => {
-                    image.style.display = 'none';
-                    video.style.display = 'block';
-                    video.play();
-                });
+      <a href="https://github.com/AfterTheRainGames/SyringeSprinter" class="btn">
+        <div class="btn btn-flip-side btn-flip-side--orange"> 
+            <span>Click Me</span> 
+            <span>GitHub</span> 
+        </div>
+      </a>
 
-                video.parentElement.addEventListener('mouseleave', () => {
-                    video.pause();
-                    video.style.display = 'none';
-                    image.style.display = 'block';
-                });
-            });
-        });
+     <div class="description">
+      <p>
+      Sprint and collect syringes filled with the speed of light while trying to avoid the monster who lives within
+      </p>
+     </div>
 
-        function toggleDropdown() {
-            var dropdown = document.getElementById('navbarDropdown');
-            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-        }
+    </div>
+ </div>
 
-        function closeDropdown() {
-            var dropdown = document.getElementById('navbarDropdown');
-            dropdown.style.display = 'none';
-        }
+ <div class="turtleGame gameContainer" id="turtleSection">
+    <img src="Images/Turtle.png" alt="Turtle">
+    <div class="gameText">
+        <h>Turtle Golf</h>
+        <p>Physics Based Puddle Jumping Adventure</p>
 
-        function scrollToSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            section.scrollIntoView({ behavior: 'smooth' });
-        }
+      <a href="https://github.com/AfterTheRainGames/TurtleGolf" class="btn">
+        <div class="btn btn-flip-side btn-flip-side--orange"> 
+            <span>Click Me</span> 
+            <span>Play It Here</span> 
+        </div>
+      </a>
 
-        document.addEventListener('DOMContentLoaded', () => {
+      <a href="https://github.com/AfterTheRainGames/TurtleGolf" class="btn">
+        <div class="btn btn-flip-side btn-flip-side--orange"> 
+            <span>Click Me</span> 
+            <span>GitHub</span> 
+        </div>
+      </a>
+
+     <div class="description">
+      <p>
+      Drop rocks into puddles to get O.Shawn the turtle back to the Ocean to rejoin his family
+      </p>
+     </div>
+
+    </div>
+ </div>
+
+
+ <div class="contact">
+   <h>Contact Me</h>
+   <p>atrgames.contact@gmail.com</p>
+ </div>
+
+<!-- JAVA SCRIPT -->
+  <script>
+
+   function scrollToSection(sectionId) 
+   {
+      const section = document.getElementById(sectionId);
+      section.scrollIntoView({behavior:'smooth', block:'center'});
+   }
+
+ document.addEventListener('DOMContentLoaded', () => {
             const canvas = document.getElementById('rainCanvas');
             const ctx = canvas.getContext('2d');
 
@@ -414,7 +383,7 @@
                     }
 
                     const dist = Math.hypot(raindrop.x - mouseX, raindrop.y - mouseY);
-                    if (dist < 100) {
+                    if (dist < 60) {
                         const angle = Math.atan2(raindrop.y - mouseY, raindrop.x - mouseX);
                         raindrop.x += Math.cos(angle) * 5;
                         raindrop.y += Math.sin(angle) * 5;
@@ -440,6 +409,8 @@
 
             animate();
         });
-    </script>
+
+  </script>
+
 </body>
 </html>
