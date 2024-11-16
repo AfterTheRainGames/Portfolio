@@ -58,8 +58,7 @@ canvas {
 .Sample{
       display: flex;
       justify-content: center;
-      gap: 20px;
-      margin-bottom: 40px;}
+      gap: 20px;}
 
     .Sample img{
       width: 10%;
@@ -70,6 +69,20 @@ canvas {
     
     .Sample img:hover{
       transform: scale(1.2);}
+
+.Games {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    text-align:center;
+    margin: 40px;
+    flex-direction: column;
+}
+
+.Games h {
+    font-size: 2em;
+    font-weight: bold;
+}
 
 .gameContainer {
     display: flex;
@@ -195,6 +208,11 @@ canvas {
     <img src="Images/Skate.png" alt="Skate" onclick="scrollToSection('skateSection')">
     <img src="Images/Syringe.png" alt="Syringe" onclick="scrollToSection('syringeSection')">
     <img src="Images/Turtle.png" alt="Turtle" onclick="scrollToSection('turtleSection')">
+ </div>
+    
+ <div class="Games">
+    <h>GAMES</h>
+    <p><a href="https://github.com/AfterTheRainGames" style="color: #FEC54B;">https://github.com/AfterTheRainGames</a></p>
  </div>
 
 <div class="paintGame gameContainer" id="paintSection">
