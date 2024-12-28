@@ -472,8 +472,8 @@ canvas {
                 return {
                     x: x,
                     y: y,
-                    speed: 1 + Math.random() * 1,
-                    radius: 1 + Math.random() * 2
+                    speed: .5 + Math.random() * 1,
+                    radius: 2 + Math.random() * 2
                 };
             }
 
@@ -488,7 +488,7 @@ canvas {
                     }
 
                     const dist = Math.hypot(raindrop.x - mouseX, raindrop.y - mouseY);
-                    if (dist < 60) {
+                    if (dist < 30) {
                         const angle = Math.atan2(raindrop.y - mouseY, raindrop.x - mouseX);
                         raindrop.x += Math.cos(angle) * 5;
                         raindrop.y += Math.sin(angle) * 5;
