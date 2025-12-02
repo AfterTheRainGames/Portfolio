@@ -7,7 +7,7 @@
 
   <style>
     body{
-      background-color: #77b5f3;
+      background-color: #ffffff;
     }
 
     button{
@@ -26,7 +26,7 @@
       font-size: 3rem;
       color: #2c3e50;
       text-align: center;
-      margin-top: 100px;
+      margin-top: 5px;
       letter-spacing: 1px;
     }
 
@@ -36,8 +36,18 @@
       color: #555;
     }
 
+    .infoContainer{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap:400px;
+      margin-top: 1000px;
+    }
+
     .infoBox{
       text-align: center;
+      padding: 20px;
+      box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
     }
 
     .infoBox h1{
@@ -53,17 +63,24 @@
   <h1>XXXXXXX</h1> <!--Portfolio-->
   <p>XXXXXXXXXXX XX XXXXXXXX!!!</p> <!--Welcome to portfolio-->
   <div class="buttonContainer">
-    <button onclick="location.href='SoftwareDeveloper'">Software Developer Projects</button>
+    <button onclick="location.href='#project1'"">Software Developer Projects</button>
     <button onclick="location.href='SoftwareDeveloper'">Other Projects</button>
   </div>
   <h1>Test</h1>
 
-<div class="infoBox">
-  <h1>Project1</h1>
-  <p>Quick Overview</p>
-  <p>Libraries Used</p>
-</div>
+  <div class="infoContainer">
+    <div id="project1" class="infoBox"> <!--P1-->
+      <h1>Project1</h1>
+      <p>Quick Overview</p>
+      <p>Libraries Used:</p>
+    </div>
 
+    <div id="project2" class="infoBox"> <!--P2-->
+      <h1>Project2</h1>
+      <p>Quick Overview</p>
+      <p>Libraries Used:</p>
+    </div>
+  </div>
 </body>
 
 </html>
