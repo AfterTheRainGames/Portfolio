@@ -153,17 +153,18 @@
 
   <div class="infoContainer">
     <!-- AutoInstaller -->
-    <div id="auto-installer" class="infoBox">
-      <h1>Auto-Installer/Auto-Installer Auto-Installer</h1>
-      <p><strong>Short Description:</strong> XX</p>
-      <p><strong>Key Features:</strong></p>
-      <ul>
-        <li>XX</li>
-        <li>XX</li>
-      </ul>
-      <p><strong>Technologies Used:</strong> Microsoft Interop, Windows Task Scheduler</p>
-      <p><strong>Outcome:</strong> XX</p>
-    </div>
+    <div id="auto-installer" class="infoBox"> 
+      <h1>Auto-Installer</h1> 
+      <p><strong>Short Description:</strong> Small C# utility that reads version numbers from a local VersionChecker.docx and synchronizes local program folders with the matching latest release folders on a shared network location.</p> 
+      <p><strong>Key Features:</strong></p> 
+      <ul> 
+        <li>Reads version info from a Word document table using Microsoft.Office.Interop.Word.</li> 
+        <li>Finds latest shared-version folders for configured programs, compares versions and copies updated files to the local NETPrograms folder.</li> 
+        <li>Updates the Word document with the new shared versions after copying and releases COM objects to avoid leaks.</li> 
+      </ul> 
+      <p><strong>Technologies Used:</strong> .NET 8, C# 12, Microsoft.Office.Interop.Word, file I/O, UNC network paths, COM interop</p> 
+      <p><strong>Outcome:</strong> Automates keeping local deployments (e.g., EmailCounterPull and EmailCounterPush) in sync with the shared repository, reducing manual update work and deployment errors.</p> 
+    </div> 
 
     <!-- AutoClicker -->
     <div id="auto-clicker" class="infoBox">
@@ -178,18 +179,18 @@
       <p><strong>Outcome:</strong> Users can create, persist, share, and run repeatable click/type/wait sequences to automate repetitive desktop tasks; scripts are human-readable and portable JSON files.</p>
     </div>
 
-    <!-- December Distributor Pricing Updater -->
-    <div id="december-distributor-pricing-updater" class="infoBox">
-      <h1>December Distributor Pricing Updater</h1>
-      <p><strong>Short Description:</strong> XX</p>
-      <p><strong>Key Features:</strong></p>
-      <ul>
-        <li>XX</li>
-        <li>XX</li>
-      </ul>
-      <p><strong>Technologies Used:</strong> Microsoft Interop</p>
-      <p><strong>Outcome:</strong> XX</p>
-    </div>
+<!-- December Distributor Pricing Updater --> 
+ <div id="december-distributor-pricing-updater" class="infoBox"> 
+  <h1>December Distributor Pricing Updater</h1> 
+  <p><strong>Short Description:</strong> Console utility that reads a distributor Excel sheet, computes updated tiered prices by querying the Syspro database and evaluating vendor pricing matrices, then writes approved updates back into the Excel file.</p> 
+  <p><strong>Key Features:</strong></p> 
+  <ul> 
+    <li>Builds a parts list from an Excel workbook and sources prices from a SQL Server (Syspro) and multiple Excel pricing templates (CBS, ECE, FSG).</li> 
+    <li>Applies business rules (90% multiplier, minimum‑buy adjustments, update only if new price is higher) and writes status notes to the workbook while logging progress to the console.</li>
+  </ul> 
+  <p><strong>Technologies Used:</strong> Microsoft.Office.Interop.Excel, Microsoft.Data.SqlClient, C# 14, .NET 10</p> 
+  <p><strong>Outcome:</strong> Distributor workbook updated with computed tiered prices and status messages; workbook is saved with only validated increases applied.</p> 
+</div>
 
     <!-- Email Counter -->
     <div id="email-counter" class="infoBox">
