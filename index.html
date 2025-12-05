@@ -3,67 +3,176 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My GitHub Pages Site</title>
-
+  <title>Responsive Portfolio Layout</title>
   <style>
-    html, body
-    {
-      height: 100%;
-    }
 
     body {
-      background: linear-gradient(45deg, #000000 70%, #d48002);
-      background-attachment: fixed; /* gradient stays fixed when scrolling */
-      min-height: 100vh;           /* at least 100% of the viewport height */
-      font-family: 'Inter', Arial, Helvetica, sans-serif;
-    }
-
-
-    button{
-      background-color: #f5f3f5;
-      padding: 10px 20px;
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
-      border-radius: 5px;
-      transition: background 0.2s;
-    }
-
-    button:hover {
-      background-color: #e0e0e0;
-    }
-
-    .buttonContainer {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #000000;
+      height: 100vh;
       display: flex;
       justify-content: center;
-      gap: 10px;
-      margin-top: 10px;
+      align-items: center;
+      overflow: hidden;
     }
 
-    h1 {
-      font-size: 3rem;
-      color: #2c3e50;
-      text-align: center;
-      margin-top: 5px;
-      letter-spacing: 1px;
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 80%;
+      gap: 20px;
+
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease, transform 1s ease;
     }
 
-    p {
-      text-align: center;
-      color: #555;
+    .container.loaded{
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .name-section {
+      flex: 1;
+    }
+
+    .name-section h1 {
+      font-size: 5rem;
+      margin: 0 0 10px 0;
+      color:#ad3ba4;
+
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: opacity 1s ease 0.5s, transform 1s ease 0.5s;
+    }
+
+    .container.loaded .name-section h1{
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .name-section p {
+      font-size: 1.1rem;
+      margin: 0;
+      color: #c067b9;
+
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: opacity 1s ease 0.7s, transform 1s ease 0.7s;
+    }
+
+    .container.loaded .name-section p{
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .buttons-section {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      opacity: 1;
+      transform: translateY(50px);
+
+    }
+
+
+    .buttons-section button {
+        padding: 25px 50px;
+        font-size: 1.25rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        background: linear-gradient(90deg, #ad3ba4 50%, #e974c6 50%);
+        background-size: 100% 300%;
+        background-position: right bottom;
+        color: white;
+
+        opacity: 0;
+    }
+
+    .buttons-section button:hover {
+    background-position: right top; /* your existing fill effect */
+    transform: translateY(-5px) scale(1.08); /* move up and scale */
+    box-shadow: 0 12px 25px rgba(0,0,0,0.4); /* bigger shadow for depth */
+    }
+
+    /* Responsive: Stack on mobile */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .buttons-section {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .buttons-section button {
+        margin: 5px;
+      }
+    }
+
+    .overlay {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.8s ease;
+    }
+    .overlay.active {
+      opacity: 1;
+      pointer-events: all;
     }
 
   </style>
-
 </head>
 
 <body>
-  <h1>XXXXXXX</h1> <!--Portfolio-->
-  <p>XXXXXXXXXXX XX XXXXXXXX!!!</p> <!--Welcome to portfolio-->
-  <div class="buttonContainer">
-    <button onclick="location.href='https://aftertheraingames.github.io/WebTest/SoftwareDeveloper'">Software Developer Projects</button>
-    <button onclick="location.href='SoftwareDeveloper'">Other Projects</button>
+  <div class="container" id="container">
+    <div class="name-section">
+      <h1>WebTest</h1> <!--Portfolio-->
+      <p>Software Developer | ### | ###</p>
+    </div>
+
+    <div class="buttons-section">
+      <button onclick="window.location.href='https://aftertheraingames.github.io/WebTest/SoftwareDeveloper'">Professional Projects</button>
+      <button onclick="alert('Automation')">Button2</button>
+      <button onclick="alert('Games')">Button3</button>
+      <button onclick="alert('Games')">Button4</button>
+    </div>
   </div>
-  <h1>Test</h1>
+
+<div class="overlay"></div>
+
+<script>
+
+const container = document.getElementById('container');
+
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    container.classList.add('loaded');
+  },100);
+
+    const buttons = document.querySelectorAll('.buttons-section button');
+
+    // Animate buttons one by one
+    buttons.forEach((button, index) => {
+        setTimeout(() => {
+          button.animate([
+          { opacity: 0, transform: 'translateY(0px)' },
+          { opacity: 1, transform: 'translateY(-50px)' }
+          ],{
+            duration: 300,
+            easing: 'ease',
+            fill: 'forwards'
+          });
+    }, 2000 + index * 500);
+  });
+});
+
+</script>
+
 </body>
 </html>
