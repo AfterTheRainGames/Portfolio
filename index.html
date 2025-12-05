@@ -73,32 +73,33 @@
       display: flex;
       flex-direction: column;
       gap: 15px;
-
-      opacity: 1;
-      transform: translateY(50px);
-
     }
 
 
     .buttons-section button {
-        padding: 25px 50px;
+        width: 250px;
+        padding: 20px;
         font-size: 1.25rem;
         border: none;
         border-radius: 8px;
         cursor: pointer;
-        background: linear-gradient(90deg, #ad3ba4 50%, #e974c6 50%);
-        background-size: 100% 300%;
-        background-position: right bottom;
+        background: linear-gradient(to top, #ad3ba4 50%, #e974c6 50%);
+        background-size: 100% 200%; /* vertical stretching */
+        background-position: bottom; /* start from bottom */
         color: white;
-
-        opacity: 0;
+        transition: transform 0.2s, box-shadow 0.2s, background-position 0.5s ease;
     }
 
     .buttons-section button:hover {
-    background-position: right top; /* your existing fill effect */
-    transform: translateY(-5px) scale(1.08); /* move up and scale */
-    box-shadow: 0 12px 25px rgba(0,0,0,0.4); /* bigger shadow for depth */
+        background-position: top; /* fill up */
+        transform: translateY(-5px) scale(1.08);
+        box-shadow: 0 12px 25px rgba(0,0,0,0.4);
     }
+
+    .button-individual{
+        opacity: 0;
+    }
+
 
     /* Responsive: Stack on mobile */
     @media (max-width: 768px) {
@@ -137,10 +138,10 @@
     </div>
 
     <div class="buttons-section">
-      <button onclick="window.location.href='https://aftertheraingames.github.io/WebTest/SoftwareDeveloper'">Professional Projects</button>
-      <button onclick="alert('Automation')">Button2</button>
-      <button onclick="alert('Games')">Button3</button>
-      <button onclick="alert('Games')">Button4</button>
+      <div class="button-individual"><button onclick="window.location.href='https://aftertheraingames.github.io/WebTest/SoftwareDeveloper'">Professional Projects</button></div>
+      <div class="button-individual"><button>Button2</button></div>
+      <div class="button-individual"><button>Button3</button></div>
+      <div class="button-individual"><button>Button4</button></div>
     </div>
   </div>
 
@@ -149,27 +150,25 @@
 <script>
 
 const container = document.getElementById('container');
-
 window.addEventListener('load', () => {
   setTimeout(() => {
     container.classList.add('loaded');
   },100);
 
-    const buttons = document.querySelectorAll('.buttons-section button');
-
-    // Animate buttons one by one
-    buttons.forEach((button, index) => {
-        setTimeout(() => {
-          button.animate([
-          { opacity: 0, transform: 'translateY(0px)' },
-          { opacity: 1, transform: 'translateY(-50px)' }
-          ],{
-            duration: 300,
+const wrappers = document.querySelectorAll('.button-individual');
+wrappers.forEach((wrapper, index) => {
+    setTimeout(() => {
+        wrapper.animate([
+            { opacity: 0, transform: 'translateY(30px)' },
+            { opacity: 1, transform: 'translateY(0)' }
+        ], {
+            duration: 600,
             easing: 'ease',
             fill: 'forwards'
-          });
+        });
     }, 2000 + index * 500);
-  });
+});
+
 });
 
 </script>
