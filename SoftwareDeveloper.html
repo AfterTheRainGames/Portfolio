@@ -29,7 +29,6 @@
     list-style: none;
     transition: transform 0.2s;
     border-radius: 12px;
-    border: 1px solid #927cf3;
     background: rgba(15, 15, 25, 0.75);
     border: 1px solid #5c1f57;
     margin-top: 12px;
@@ -38,8 +37,9 @@
     color: white;
   }
 
-  .project-list .button-wrapper:hover{
+  .project-list button:hover{
     transform: translateY(-2px);
+    background-color: rgb(245, 74, 194);
   }
   
   .project-list button{
@@ -48,10 +48,16 @@
     cursor: pointer;
     font-size: 1.1rem;
     padding: 15px 20px;
+    border-radius: 12px;
     border: none;
     font-weight: 600;
     background-color: transparent;
     color: white;
+  }
+
+  .project-list button:hover{
+    transform: translateY(-2px);
+    background: rgba(224, 35, 209, 0.1);;
   }
 
   .details{
@@ -91,9 +97,8 @@
 <ul class ="project-list">
 
   <li>
-    <div class="button-wrapper">
-      <button onclick="toggleDetails(this)">AutoInstaller [Automatic desktop program updater]</button>
-    </div>
+
+    <button onclick="toggleDetails(this)">Auto-Installer [Automatic desktop program updater]</button>
 
     <div class="details">
       <div class="leftSide">
@@ -120,9 +125,9 @@
   </li>
 
   <li>
-    <div class="button-wrapper">
-      <button onclick="toggleDetails(this)">AutoClicker [Desktop automation & scripting]</button>
-    </div>
+
+    <button onclick="toggleDetails(this)">Auto-Clicker [Desktop automation & scripting]</button>
+
     <div class="details">
       <div class="leftSide">
         <p><strong>Short Description:</strong> Windows Forms application that lets users visually build automation scripts using Click, Type and Wait commands and run them; scripts are persisted as JSON files under <code>Desktop/JSONs</code>.</p>
@@ -147,9 +152,9 @@
   </li>
 
   <li>
-    <div class="button-wrapper">
-      <button onclick="toggleDetails(this)">Annual Pricing Updater [Bulk price update tool]</button>
-    </div>
+
+    <button onclick="toggleDetails(this)">Annual Pricing Updater [Bulk price update tool]</button>
+
     <div class="details">
       <div class="leftSide">
         <p><strong>Short Description:</strong> Console utility that reads a distributor Excel sheet, computes updated tiered prices by querying the Syspro database and evaluating vendor pricing matrices, then writes approved updates back into the Excel file.</p>
@@ -173,9 +178,9 @@
   </li>
 
   <li>
-    <div class="button-wrapper">
-      <button onclick="toggleDetails(this)">Email Counter [Daily Outlook activity tracker]</button>
-    </div>
+
+    <button onclick="toggleDetails(this)">Email Counter [Daily Outlook activity tracker]</button>
+
     <div class="details">
       <div class="leftSide">
         <p><strong>Short Description:</strong> A small automation tool that reads Outlook mail (inbox, subfolders, Sent and Deleted Items), counts sent and received emails per workday, and records the results into a personal Excel workbook — then pushes those per-day counts into a shared engineering Excel workbook so team-wide tracking is centralized.</p>
@@ -204,9 +209,9 @@
   </li>
 
   <li>
-    <div class="button-wrapper">
-      <button onclick="toggleDetails(this)">Part Finder [Automatic file path search tool]</button>
-    </div>
+
+    <button onclick="toggleDetails(this)">Part Finder [Automatic file path search tool]</button>
+
     <div class="details">
       <div class="leftSide">
         <p><strong>Short Description:</strong> Small Windows Forms utility that locates part folders or quote PDFs on a network by part type and number.</p>
@@ -231,9 +236,9 @@
   </li>
 
   <li>
-    <div class="button-wrapper">
-      <button onclick="toggleDetails(this)">Auto Quoter [Minimal UI quote generator]</button>
-    </div>
+
+    <button onclick="toggleDetails(this)">Auto Quoter [Minimal UI quote generator]</button>
+
     <div class="details">
       <div class="leftSide">
         <p><strong>Short Description:</strong> Auto Quoter is a Windows Forms utility that parses FSG product codes, updates a desktop Excel pricing matrix, reads back calculated prices and costs, and generates clipboard-ready quotes.</p>
@@ -258,9 +263,9 @@
   </li>
 
   <li>
-    <div class="button-wrapper">
-      <button onclick="toggleDetails(this)">HubSpot API [ERP -> CRM connection program]</button>
-    </div>
+
+    <button onclick="toggleDetails(this)">HubSpot API [ERP -> CRM connection program]</button>
+
     <div class="details">
       <div class="leftSide">
         <p><strong>Short Description:</strong> Console application that queries the Syspro SQL Server database for recent sales order operations, transforms and posts those lines to HubSpot as a custom object, and creates/updates/associates corresponding deals and companies in HubSpot.</p>
@@ -286,9 +291,9 @@
   </li>
 
   <li>
-    <div class="button-wrapper">
-      <button onclick="toggleDetails(this)">ImprovementApp [Internal idea tracking web app]</button>
-    </div>
+
+    <button onclick="toggleDetails(this)">ImprovementApp [Internal idea tracking web app]</button>
+
     <div class="details">
       <div class="leftSide">
         <p><strong>Short Description:</strong> Lightweight Blazor Interactive Server application to collect, review, and persist continuous improvement suggestions via a simple web form and list view.</p>
@@ -315,9 +320,9 @@
   </li>
 
   <li>
-    <div class="button-wrapper">
-      <button onclick="toggleDetails(this)">Job Splitter [Multi-PDF job file seperator]</button>
-    </div>
+
+    <button onclick="toggleDetails(this)">Job Splitter [Multi-PDF job file seperator]</button>
+
     <div class="details">
       <div class="leftSide">
         <p><strong>Short Description:</strong> A Windows Forms utility that scans multi-job PDF travelers, extracts job numbers from pages, and splits each input PDF into separate per-job PDF files.</p>
@@ -341,9 +346,9 @@
   </li>
 
   <li>
-    <div class="button-wrapper">
-      <button onclick="toggleDetails(this)">NonMetal Helper [Fast multi-functional variety tool]</button>
-    </div>
+
+    <button onclick="toggleDetails(this)">NonMetal Helper [Fast multi-functional variety tool]</button>
+
     <div class="details">
       <div class="leftSide">
         <p><strong>Short Description:</strong> A Windows Forms utility that streamlines pricing lookup, quote note generation, and quick access to commonly used files and websites for non-metal product lines.</p>
@@ -369,9 +374,9 @@
   </li>
 
   <li>
-    <div class="button-wrapper">
-      <button onclick="toggleDetails(this)">Various File Organizers [Batch file renaming and rereouting programs]</button>
-    </div>
+
+    <button onclick="toggleDetails(this)">Various File Organizers [Batch file renaming and rereouting programs]</button>
+
     <div class="details">
       <div class="leftSide">
         <p><strong>Short Description:</strong> A small .NET console utility that batch-processes files on a network share to standardize names, pad short filenames, and optionally move files into destination folders based on rule criteria.</p>
@@ -398,9 +403,9 @@
   </li>
 
   <li>
-    <div class="button-wrapper">
-      <button onclick="toggleDetails(this)">Quote Noter [Standardized quote note generator]</button>
-    </div>
+
+    <button onclick="toggleDetails(this)">Quote Noter [Standardized quote note generator]</button>
+
     <div class="details">
       <div class="leftSide">
         <p><strong>Short Description:</strong> Desktop utility that generates standardized manufacturing quote notes from user-selected options and inputs, producing ready-to-copy text for quotes.</p>
@@ -425,9 +430,9 @@
   </li>
 
   <li>
-    <div class="button-wrapper">
-      <button onclick="toggleDetails(this)">Run Rates [Department production tracking]</button>
-    </div>
+
+    <button onclick="toggleDetails(this)">Run Rates [Department production tracking]</button>
+
     <div class="details">
       <div class="leftSide">
         <p><strong>Short Description:</strong> Windows Forms app for logging and managing department run-rate data into a central Excel workbook.</p>
@@ -452,9 +457,9 @@
   </li>
 
   <li>
-    <div class="button-wrapper">
-      <button onclick="toggleDetails(this)">Syspro Mini [Quick inventory & pricing lookup]</button>
-    </div>
+
+    <button onclick="toggleDetails(this)">Syspro Mini [Quick inventory & pricing lookup]</button>
+
     <div class="details">
       <div class="leftSide">
         <p><strong>Short Description:</strong> Lightweight WinForms desktop utility to query the Syspro database for inventory and pricing, display results in a grid, and preview associated PDF drawings/quotes.</p>
@@ -482,7 +487,7 @@
 
 <script>
   function toggleDetails(button) {
-    const details = button.parentElement.nextElementSibling;
+    const details = button.nextElementSibling;
     if(details.style.display === "flex"){
       details.style.display = "none";
       
