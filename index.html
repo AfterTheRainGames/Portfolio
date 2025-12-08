@@ -9,10 +9,12 @@
     body {  /*Defaults/Whole Page*/
       font-family: 'Inter', Arial, sans-serif;
       background: linear-gradient(to bottom right, #d9defa 0%, #ffffff 50%, #ffffff 100%);
+      background: linear-gradient(to top right, #000000 70%, #ad3ba4);
       display: flex;
       flex-direction: column;
       align-items: center;
       padding: 30px;
+      color: white;
     }
 
     .top-box{
@@ -23,6 +25,7 @@
     .top-box h1{
       font-size: 3.2rem;
       margin-bottom: 10px;
+      color: #ad3ba4;
     }
 
     .top-box p{
@@ -37,15 +40,20 @@
       margin: 10px;
     }
 
+    .bot-box h1{
+      color: #ad3ba4;
+      font-size: 2.5rem;
+    }
+
     .subTitle{
-      width: 60%;
+      width: 50%;
       display: flex;
       justify-content: center; /*MAIN AXIS (X)*/
       align-items: center;
     }
 
     .subDesc{
-      width: 40%;
+      width: 50%;
       display: flex;
       flex-direction: column;   /*Y*/
       justify-content: center; /*MAIN AXIS (Y)*/
@@ -58,17 +66,17 @@
 
     .subDesc button{
       padding: 12px 25px;
-      background-color: #5372fc;
+      background: linear-gradient(to bottom left,#ad3ba4 30%, #000000 70%, #ad3ba4 100%);
       color: #ffffff;
       border-radius: 6px;
       border: none;
       cursor: pointer;
       font-size: 1rem;
-      transition: background-color 0.3s, transform 0.2s;
+      transition: transform 0.2s;
     }
 
     .subDesc button:hover{
-      background-color: #2320f5;
+      background: linear-gradient(to bottom left,#ad3ba4 10%, #000000 30%, #ad3ba4 100%);
       transform: scale(1.1);
     }
 
@@ -108,7 +116,7 @@
 
     <div class = "subDesc">
       <p>Dive into exploring my professional projects</p>
-      <button>I'm a Button</button>
+      <button onclick="window.location.href='https://aftertheraingames.github.io/WebTest/GD'">GD</button>
     </div>
 
   </div>

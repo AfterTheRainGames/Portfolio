@@ -86,13 +86,13 @@
     <button onclick="window.location.href='https://aftertheraingames.github.io/WebTest'">Home</button>
   </div>
 
-  <h1>Professional Projects</h1>
+  <h1>GD</h1>
 
 <ul class ="project-list">
 
   <li>
     <div class="button-wrapper">
-      <button onclick="toggleDetails(this)">AutoInstaller [Automatic desktop program updater]</button>
+      <button onclick="toggleDetails(this)">AutoInstaller - Desktop Automatic Updates Program</button>
     </div>
 
     <div class="details">
@@ -121,7 +121,7 @@
 
   <li>
     <div class="button-wrapper">
-      <button onclick="toggleDetails(this)">AutoClicker [Desktop automation & scripting]</button>
+      <button onclick="toggleDetails(this)">AutoClicker</button>
     </div>
     <div class="details">
       <div class="leftSide">
@@ -148,7 +148,7 @@
 
   <li>
     <div class="button-wrapper">
-      <button onclick="toggleDetails(this)">Annual Pricing Updater [Bulk price update tool]</button>
+      <button onclick="toggleDetails(this)">Annual Pricing Updater - Update price for every part in the database</button>
     </div>
     <div class="details">
       <div class="leftSide">
@@ -174,7 +174,7 @@
 
   <li>
     <div class="button-wrapper">
-      <button onclick="toggleDetails(this)">Email Counter [Daily Outlook activity tracker]</button>
+      <button onclick="toggleDetails(this)">Email Counter</button>
     </div>
     <div class="details">
       <div class="leftSide">
@@ -205,7 +205,7 @@
 
   <li>
     <div class="button-wrapper">
-      <button onclick="toggleDetails(this)">Part Finder [Automatic file path search tool]</button>
+      <button onclick="toggleDetails(this)">Part Finder</button>
     </div>
     <div class="details">
       <div class="leftSide">
@@ -232,7 +232,7 @@
 
   <li>
     <div class="button-wrapper">
-      <button onclick="toggleDetails(this)">Auto Quoter [Minimal UI quote generator]</button>
+      <button onclick="toggleDetails(this)">Auto Quoter</button>
     </div>
     <div class="details">
       <div class="leftSide">
@@ -259,7 +259,7 @@
 
   <li>
     <div class="button-wrapper">
-      <button onclick="toggleDetails(this)">HubSpot API [ERP -> CRM connection program]</button>
+      <button onclick="toggleDetails(this)">HubSpot API</button>
     </div>
     <div class="details">
       <div class="leftSide">
@@ -287,7 +287,7 @@
 
   <li>
     <div class="button-wrapper">
-      <button onclick="toggleDetails(this)">ImprovementApp [Internal idea tracking web app]</button>
+      <button onclick="toggleDetails(this)">ImprovementApp</button>
     </div>
     <div class="details">
       <div class="leftSide">
@@ -316,7 +316,7 @@
 
   <li>
     <div class="button-wrapper">
-      <button onclick="toggleDetails(this)">Job Splitter [Multi-PDF job file seperator]</button>
+      <button onclick="toggleDetails(this)">Job Splitter</button>
     </div>
     <div class="details">
       <div class="leftSide">
@@ -342,7 +342,7 @@
 
   <li>
     <div class="button-wrapper">
-      <button onclick="toggleDetails(this)">NonMetal Helper [Fast multi-functional variety tool]</button>
+      <button onclick="toggleDetails(this)">NonMetal Helper</button>
     </div>
     <div class="details">
       <div class="leftSide">
@@ -370,7 +370,7 @@
 
   <li>
     <div class="button-wrapper">
-      <button onclick="toggleDetails(this)">Various File Organizers [Batch file renaming and rereouting programs]</button>
+      <button onclick="toggleDetails(this)">Various File Organizers</button>
     </div>
     <div class="details">
       <div class="leftSide">
@@ -399,7 +399,7 @@
 
   <li>
     <div class="button-wrapper">
-      <button onclick="toggleDetails(this)">Quote Noter [Standardized quote note generator]</button>
+      <button onclick="toggleDetails(this)">Quote Noter</button>
     </div>
     <div class="details">
       <div class="leftSide">
@@ -426,7 +426,7 @@
 
   <li>
     <div class="button-wrapper">
-      <button onclick="toggleDetails(this)">Run Rates [Department production tracking]</button>
+      <button onclick="toggleDetails(this)">Run Rates</button>
     </div>
     <div class="details">
       <div class="leftSide">
@@ -453,7 +453,7 @@
 
   <li>
     <div class="button-wrapper">
-      <button onclick="toggleDetails(this)">Syspro Mini [Quick inventory & pricing lookup]</button>
+      <button onclick="toggleDetails(this)">Syspro Mini</button>
     </div>
     <div class="details">
       <div class="leftSide">
