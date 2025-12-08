@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professional Projects</title>
+<style>
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    background: linear-gradient(45deg, #000000 70%, #ad3ba4);
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: #f9fafb;
+    padding: 20px;
+  }
+
+  h1 {
+    text-align: center;
+    color: #ad3ba4;
+    margin-bottom: 20px;
+  }
+
+  ul.project-list {
+    list-style: none;
+    padding: 0;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  ul.project-list li {
+    margin-bottom: 12px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(15, 15, 25, 0.75);
+    border: 1px solid rgba(224, 35, 209, 0.08);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  ul.project-list li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+  }
+
+  ul.project-list button {
+    width: 100%;
+    text-align: left;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #f9fafb;
+    font-weight: 600;
+  }
+
+  ul.project-list button:hover {
+    background: rgba(224, 35, 209, 0.1);
+  }
+
+  .project-details {
+    padding: 15px 20px;
+    display: none;
+    font-size: 0.95rem;
+    color: #d1d5db;
+  }
+
+  .project-details p, .project-details ul {
+    margin: 6px 0;
+  }
+
+  .project-details ul {
+    padding-left: 20px;
+  }
+
+  .project-details ul li {
+    list-style-type: disc;
+    margin-bottom: 4px;
+    color: #e5e7eb;
+  }
+</style>
+</head>
+<body>
+
+<h1>Professional Projects</h1>
+
+<ul class="project-list">
+  <li>
+    <button onclick="toggleDetails(this)">Auto-Installer</button>
+    <div class="project-details">
+      <p><strong>Short Description:</strong> Small C# utility that reads version numbers from a local VersionChecker.docx and synchronizes local program folders with the matching latest release folders on a shared network location.</p>
+      <p><strong>Key Features:</strong></p>
+      <ul>
+        <li>Reads version info from a Word document table using Microsoft.Office.Interop.Word.</li>
+        <li>Finds latest shared-version folders for configured programs, compares versions and copies updated files to the local NETPrograms folder.</li>
+        <li>Updates the Word document with the new shared versions after copying and releases COM objects to avoid leaks.</li>
+      </ul>
+      <p><strong>Technologies Used:</strong> .NET 8, C# 12, Microsoft.Office.Interop.Word, file I/O, UNC network paths, COM interop</p>
+      <p><strong>Outcome:</strong> Automates keeping local deployments in sync with the shared repository, reducing manual update work and deployment errors.</p>
+    </div>
+  </li>
+
+  <li>
+    <button onclick="toggleDetails(this)">AutoClicker</button>
+    <div class="project-details">
+      <p><strong>Short Description:</strong> Windows Forms application that lets users visually build automation scripts using Click, Type and Wait commands and run them; scripts are persisted as JSON files under Desktop/JSONs.</p>
+      <p><strong>Key Features:</strong></p>
+      <ul>
+        <li>Visual script builder: add Click, Type, and Wait steps with a simple UI.</li>
+        <li>Script management & execution: save/load/delete scripts as JSON, run asynchronously, simulate mouse/keyboard via P/Invoke.</li>
+      </ul>
+      <p><strong>Technologies Used:</strong> C# (WinForms on .NET 10), System.Text.Json, P/Invoke to user32.dll, SendKeys, file I/O.</p>
+      <p><strong>Outcome:</strong> Users can create, persist, share, and run repeatable click/type/wait sequences to automate desktop tasks.</p>
+    </div>
+  </li>
+
+  <!-- Repeat similar structure for each project -->
+</ul>
+
+<script>
+  function toggleDetails(button) {
+    const details = button.nextElementSibling;
+    if(details.style.display === "block"){
+      details.style.display = "none";
+    } else {
+      details.style.display = "block";
+    }
+  }
+</script>
+
+</body>
+</html>
