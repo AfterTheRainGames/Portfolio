@@ -8,8 +8,7 @@
 
     body {  /*Defaults/Whole Page*/
       font-family: 'Inter', Arial, sans-serif;
-      background: linear-gradient(to bottom right, #d9defa 0%, #ffffff 50%, #ffffff 100%);
-      background: linear-gradient(to top right, #000000 70%, #ad3ba4);
+      background: linear-gradient(to top right, #000000 90%, #ad3ba4 93%, #ca6036 96%, #18a52f 100%);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -25,7 +24,7 @@
     .top-box h1{
       font-size: 3.2rem;
       margin-bottom: 10px;
-      color: #ad3ba4;
+      color: linear-gradient(to top right, #ffffff 90%, #ad3ba4 93%, #ca6036 96%, #18a52f 100%);
     }
 
     .top-box p{
@@ -43,6 +42,15 @@
     .bot-box h1{
       color: #ad3ba4;
       font-size: 2.5rem;
+    }
+
+    
+    .bot-box h1.orange-text{
+      color: #ca6036;
+    }
+
+    .bot-box h1.green-text{
+      color: #18a52f;
     }
 
     .subTitle{
@@ -80,6 +88,24 @@
       transform: scale(1.1);
     }
 
+    .subDesc button.orange-button {
+      background: linear-gradient(to bottom left,#ca6036 30%, #000000 70%, #ca6036 100%);
+    }
+
+    .subDesc button.orange-button:hover {
+      background: linear-gradient(to bottom left,#ca6036 10%, #000000 30%, #ca6036 100%);
+      transform: scale(1.1);
+    }
+
+    .subDesc button.green-button {
+      background: linear-gradient(to bottom left,#18a52f 30%, #000000 70%, #18a52f 100%);
+    }
+
+    .subDesc button.green-button:hover {
+      background: linear-gradient(to bottom left,#18a52f 10%, #000000 30%, #18a52f 100%);
+      transform: scale(1.1);
+    }
+
     .subDesc button:active{
       transform: translateY(0);
     }
@@ -108,29 +134,29 @@
     </div>
 
   </div>
-
-  <div class="bot-box"> <!--Prof-->
+<!----------------------------------------------------------------------------------------------->
+  <div class="bot-box">
 
     <div class = "subTitle">
-      <h1>Game Devlopment</h1>
+      <h1 class="orange-text">Game Development</h1>
     </div>
 
     <div class = "subDesc">
       <p>Dive into exploring my game development projects</p>
-      <button onclick="window.location.href='https://aftertheraingames.github.io/Portfolio/GameDevelopment.html'">Game Development</button>
+      <button class="orange-button" onclick="window.location.href='https://aftertheraingames.github.io/Portfolio/GameDevelopment.html'">Game Development</button>
     </div>
 
   </div>
-
-  <div class="bot-box"> <!--Prof-->
+<!----------------------------------------------------------------------------------------------->
+  <div class="bot-box">
 
     <div class = "subTitle">
-      <h1>Personal Projects</h1>
+      <h1 class="green-text">Personal Projects</h1>
     </div>
 
     <div class = "subDesc">
       <p>Dive into exploring my personal projects</p>
-      <button onclick="window.location.href='https://aftertheraingames.github.io/Portfolio/PersonalProjects.html'">Personal Projects</button>
+      <button class="green-button" onclick="window.location.href='https://aftertheraingames.github.io/Portfolio/PersonalProjects.html'">Personal Projects</button>
     </div>
 
   </div>
