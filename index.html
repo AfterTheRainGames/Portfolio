@@ -31,13 +31,15 @@
       font-size: 1.1rem;
     }
 
-    .bot-box{
-
-      height: 200px;
-      width: 1000px;
-      display: flex;
-      margin: 10px;
-    }
+ .bot-box {
+  min-height: 180px;
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  margin: 10px;
+  gap: 10px;
+  padding: 10px;
+}
 
     .bot-box h1{
       color: #ad3ba4;
@@ -110,7 +112,35 @@
       transform: translateY(0);
     }
     
+@media (max-width: 768px) {
+  .bot-box {
+    flex-direction: column;
+    height: auto;
+    text-align: center;
+  }
 
+  .subTitle,
+  .subDesc {
+    width: 100%;
+  }
+
+  .top-box h1 {
+    font-size: 2.2rem;
+  }
+
+  .bot-box h1 {
+    font-size: 1.8rem;
+  }
+
+  .subDesc p {
+    font-size: 1rem;
+  }
+
+  .subDesc button {
+    width: 100%;
+    max-width: 280px;
+  }
+}
   </style>
 </head>
 
