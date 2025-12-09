@@ -20,9 +20,11 @@
     color: #ca6036;
   }
 
-  .project-list{
-    width: 1000px;
+  .project-list {
+    width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 12px;
   }
 
   .project-list li{
@@ -114,6 +116,43 @@
     border-radius: 6px;
     border:3px solid #ca6036;
   }
+
+/*MOBILE*/
+  @media (max-width: 768px) {
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .project-list button {
+    font-size: 1rem;
+    padding: 14px 14px;
+  }
+
+  .details {
+    flex-direction: column;
+  }
+
+  .leftSide,
+  .rightSide {
+    flex: 100%;
+    padding: 10px 0;
+  }
+
+  .rightSide {
+    border-top: 1px solid #333;
+    margin-top: 10px;
+  }
+
+  .project-list li {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  body {
+    padding: 10px;
+  }
+}
 
 </style>
 
