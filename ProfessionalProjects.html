@@ -148,15 +148,15 @@
 
   <li>
 
-    <button onclick="toggleDetails(this)">Auto-Installer [Automatic desktop program updater]</button>
+    <button onclick="toggleDetails(this)">Auto-Installer [Automatic desktop program updater]</button> <!--Ready for Check-->
 
     <div class="details">
       <div class="leftSide">
-      <p><strong>Short Description:</strong> Small C# utility that reads version numbers from a local VersionChecker.docx and synchronizes local program folders with the matching latest release folders on a shared network location.</p>
+      <p><strong>Short Description:</strong> C# utility that reads version numbers from a desktop word doc and synchronizes local program folders with the matching latest release folders on a shared network location.</p>
       <p><strong>Key Features:</strong></p>
       <ul>
         <li>Reads version info from a Word document table using Microsoft.Office.Interop.Word.</li>
-        <li>Finds latest shared-version folders for configured programs, compares versions and copies updated files to the local NETPrograms folder.</li>
+        <li>Finds latest shared-version folders for configured programs, compares versions and copies updated files to associated desktop folder.</li>
         <li>Updates the Word document with the new shared versions after copying and releases COM objects to avoid leaks.</li>
       </ul>
       <p><strong>Outcome:</strong> Automates keeping local deployments in sync with the shared repository, reducing manual update work and deployment errors.</p>
@@ -167,7 +167,7 @@
         <li>.NET8</li>
         <li>C#</li>
         <li>Microsoft.Office.Interop.Word</li>
-        <li>file I/O</li>
+        <li>File I/O</li>
         <li>COM interop</li>
       </ul>
     </div>
@@ -176,26 +176,26 @@
 
   <li>
 
-    <button onclick="toggleDetails(this)">Auto-Clicker [Desktop automation & scripting]</button>
+    <button onclick="toggleDetails(this)">Auto-Clicker [Desktop automation & scripting]</button><!--Ready for Check-->
 
     <div class="details">
       <div class="leftSide">
-        <p><strong>Short Description:</strong> Windows Forms application that lets users visually build automation scripts using Click, Type and Wait commands and run them; scripts are persisted as JSON files under <code>Desktop/JSONs</code>.</p>
+        <p><strong>Short Description:</strong> Windows Forms application that lets users visually build automation scripts.</p>
         <p><strong>Key Features:</strong></p>
         <ul>
           <li>Visual script builder: add Click (screen coordinates), Type (text or modifier keys), and Wait (seconds) steps with a simple UI and real-time cursor coordinate capture.</li>
-          <li>Script management & execution: save/load/delete scripts as JSON, dynamically list available scripts, run scripts asynchronously with optional looping and cancellation (End key), and simulate mouse/keyboard via P/Invoke and SendKeys.</li>
+          <li>Save/load/delete scripts as JSONs</li>
         </ul>
-        <p><strong>Outcome:</strong> Users can create, persist, share, and run repeatable click/type/wait sequences to automate repetitive desktop tasks; scripts are human-readable and portable JSON files.</p>
+        <p><strong>Outcome:</strong> Users can create and run repeatable click/type/wait sequences to automate repetitive desktop tasks</p>
       </div>
       <div class="rightSide">
         <p><strong>Technologies Used:</strong></p>
         <ul>
-          <li>C# (WinForms on .NET 10)</li>
-          <li>System.Text.Json</li>
-          <li>P/Invoke to user32.dll (GetCursorPos, mouse_event)</li>
-          <li>SendKeys</li>
-          <li>File I/O for JSON persistence</li>
+          <li>WinForms (Windows Forms)</li>
+          <li>.NET 8</li>
+          <li>C#</li>
+          <li>JSON</li>
+          <li>File I/O</li>
         </ul>
       </div>
     </div>
@@ -203,25 +203,27 @@
 
   <li>
 
-    <button onclick="toggleDetails(this)">Annual Pricing Updater [Bulk price update tool]</button>
+    <button onclick="toggleDetails(this)">Annual Pricing Updater [Bulk price update tool]</button>  <!--Ready for Check-->
 
     <div class="details">
       <div class="leftSide">
-        <p><strong>Short Description:</strong> Console utility that reads a distributor Excel sheet, computes updated tiered prices by querying the Syspro database and evaluating vendor pricing matrices, then writes approved updates back into the Excel file.</p>
+        <p><strong>Short Description:</strong> Pricing program that determines which method of pricing to use based on part number and returns updated pricing to master list</p>
         <p><strong>Key Features:</strong></p>
         <ul>
-          <li>Builds a parts list from an Excel workbook and sources prices from a SQL Server (Syspro) and multiple Excel pricing templates (CBS, ECE, FSG).</li>
-          <li>Applies business rules (90% multiplier, minimum‑buy adjustments, update only if new price is higher) and writes status notes to the workbook while logging progress to the console.</li>
+          <li>Gathers a list of desired parts based on criteria to be using in a SQL query</li>
+          <li>Determines pricing method, whether it be through an excel matrix or use current/updated database pricing</li>
+          <li>Parses part number and inputs correct aspects into associated fields to determine pricing based on specs</li>
         </ul>
-        <p><strong>Outcome:</strong> Distributor workbook updated with computed tiered prices and status messages; workbook is saved with only validated increases applied.</p>
+        <p><strong>Outcome:</strong> Pricing master list can be updated in hours as opposed to multiple weeks if not months.</p>
       </div>
       <div class="rightSide">
         <p><strong>Technologies Used:</strong></p>
         <ul>
-          <li>Microsoft.Office.Interop.Excel</li>
+          <li>SQL</li>
           <li>Microsoft.Data.SqlClient</li>
-          <li>C# 14</li>
+          <li>C#</li>
           <li>.NET 10</li>
+          <li>Microsoft.Office.Interop.Excel</li>
         </ul>
       </div>
     </div>
@@ -229,30 +231,27 @@
 
   <li>
 
-    <button onclick="toggleDetails(this)">Email Counter [Daily Outlook activity tracker]</button>
+    <button onclick="toggleDetails(this)">Email Counter [Daily Outlook activity tracker]</button> <!--Ready for Check-->
 
     <div class="details">
       <div class="leftSide">
-        <p><strong>Short Description:</strong> A small automation tool that reads Outlook mail (inbox, subfolders, Sent and Deleted Items), counts sent and received emails per workday, and records the results into a personal Excel workbook — then pushes those per-day counts into a shared engineering Excel workbook so team-wide tracking is centralized.</p>
+        <p><strong>Short Description:</strong> Automation tool that reads Outlook items for each team member and logs results in a shared excel</p>
         <p><strong>Key Features:</strong></p>
         <ul>
-          <li>Scans Outlook folders to compute daily sent/received counts and (where applicable) uses a membership database to identify team recipients/senders when counting deleted items.</li>
+          <li>Scans Outlook folders for daily sent/received counts while using a membership database to additionally identify shared email inboxs.</li>
           <li>Maintains a personal Excel file with per-day counts and also pushes those counts into a central/shared engineering Excel workbook.</li>
-          <li>Maps the current Excel/Windows user to the correct target column in the shared workbook (name→column mapping) and writes both Received and Sent columns for that user.</li>
-          <li>Ensures the shared table has at least as many rows as the personal table, adding rows if needed, and writes the date column with a consistent date format.</li>
-          <li>Opens the personal workbook read-only and writes only to the shared engineering workbook; aborts safely if table sizes are inconsistent to avoid corruption.</li>
-          <li>Properly releases COM objects and attempts to kill lingering Excel processes (uses Windows API to find Excel PID) to avoid orphaned instances.</li>
+          <li>Maps the current Windows user to the correct target column in the shared workbook.</li>
+          <li>Opens the personal workbook and writes to the shared engineering workbook</li>
         </ul>
-        <p><strong>Outcome:</strong> Automated daily email activity reporting that produces local per-day counts and pushes those counts into a central Email_Counter_Data.xlsx for team-wide tracking, eliminating manual copy/paste and ensuring proper Excel cleanup.</p>
+        <p><strong>Outcome:</strong> Automated daily email activity reporting that allows for management to see email workload in various excel graphs</p>
       </div>
       <div class="rightSide">
         <p><strong>Technologies Used:</strong></p>
         <ul>
-          <li>C# (.NET 8)</li>
+          <li>.NET 8</li>
+          <li>C#</li>
           <li>Microsoft.Office.Interop.Outlook</li>
           <li>Microsoft.Office.Interop.Excel</li>
-          <li>Windows API</li>
-          <li>Standard .NET libraries</li>
         </ul>
       </div>
     </div>
@@ -260,26 +259,25 @@
 
   <li>
 
-    <button onclick="toggleDetails(this)">Part Finder [Automatic file path search tool]</button>
+    <button onclick="toggleDetails(this)">Part Finder [One-step file and file path search tool]</button> <!--Ready for Check-->
 
     <div class="details">
       <div class="leftSide">
-        <p><strong>Short Description:</strong> Small Windows Forms utility that locates part folders or quote PDFs on a network by part type and number.</p>
+        <p><strong>Short Description:</strong> Windows Form Application that locates part folders or quote PDFs based on standardized folder naming conventions</p>
         <p><strong>Key Features:</strong></p>
         <ul>
-          <li>Select part type and enter a part number to open the correct network folder (parts are grouped into 100-size ranges).</li>
-          <li>Open quote PDFs by number, handle hyphen suffixes, and validate input with user-friendly error messages.</li>
+          <li>Simplying typing the part number automatically leads to direct file path</li>
+          <li>Simplying typing the quote number automatically leads to direct file</li>
         </ul>
-        <p><strong>Outcome:</strong> Faster, reliable access to part directories and quote documents on the network, reducing manual search time for engineering and sales teams.</p>
+        <p><strong>Outcome:</strong> Faster, reliable access to part directories and quote documents, reducing manual search time</p>
       </div>
       <div class="rightSide">
         <p><strong>Technologies Used:</strong></p>
         <ul>
+          <li>WinForms (Windows Forms)</li>
           <li>C#</li>
           <li>.NET 8</li>
-          <li>Windows Forms</li>
           <li>System.IO</li>
-          <li>System.Diagnostics.Process</li>
         </ul>
       </div>
     </div>
@@ -287,26 +285,26 @@
 
   <li>
 
-    <button onclick="toggleDetails(this)">Auto Quoter [Minimal UI quote generator]</button>
+    <button onclick="toggleDetails(this)">Auto Quoter [One-step quote input generator]</button> <!--Ready for Check-->
 
     <div class="details">
       <div class="leftSide">
-        <p><strong>Short Description:</strong> Auto Quoter is a Windows Forms utility that parses FSG product codes, updates a desktop Excel pricing matrix, reads back calculated prices and costs, and generates clipboard-ready quotes.</p>
+        <p><strong>Short Description:</strong> Auto Quoter is a Windows Forms utility that parses part numbers and generates clipboard-ready quotes.</p>
         <p><strong>Key Features:</strong></p>
         <ul>
-          <li>Parses and validates FSG codes into height/width/shape/length and displays human-readable dimensions.</li>
-          <li>Automates Excel interaction using Microsoft.Office.Interop.Excel to write inputs, trigger calculations, read results, populate UI tables, and copy formatted quotes to the clipboard while cleaning up COM objects.</li>
+          <li>Parses part numbers into specs such as height, width, shape, and length</li>
+          <li>Automates Excel interaction using Microsoft.Office.Interop.Excel to write inputs and trigger calculations</li>
+          <li>Displays results in a user-friendly interface with a button to copy prices to the clipboard for quick and easy pricing</li>
         </ul>
         <p><strong>Outcome:</strong> Automates price lookup and quote creation from an Excel pricing matrix, reducing manual steps, minimizing errors, and improving quoting speed and consistency.</p>
       </div>
       <div class="rightSide">
         <p><strong>Technologies Used:</strong></p>
         <ul>
+          <li>WinForms (Windows Forms)</li>
           <li>C#</li>
           <li>.NET 8</li>
-          <li>Windows Forms</li>
           <li>Microsoft.Office.Interop.Excel</li>
-          <li>COM interop</li>
         </ul>
       </div>
     </div>
@@ -314,27 +312,26 @@
 
   <li>
 
-    <button onclick="toggleDetails(this)">HubSpot API [ERP -> CRM connection program]</button>
+    <button onclick="toggleDetails(this)">HubSpot API [ERP -> CRM connection program]</button> <!--Ready for Check-->
 
     <div class="details">
       <div class="leftSide">
-        <p><strong>Short Description:</strong> Console application that queries the Syspro SQL Server database for recent sales order operations, transforms and posts those lines to HubSpot as a custom object, and creates/updates/associates corresponding deals and companies in HubSpot.</p>
+        <p><strong>Short Description:</strong> Console application that queries the Syspro SQL Server database to create up to date deals within HubSpot</p>
         <p><strong>Key Features:</strong></p>
         <ul>
-          <li>Extracts and aggregates recent sales order operations (DT/Area allocation logic), prevents duplicate line creation via a unique_id search, and posts new custom object records to HubSpot.</li>
-          <li>Creates and updates deals (pipeline & stage), patches deal properties (area, salesperson, amount) when applicable, and creates associations between line items, deals, and companies.</li>
+          <li>Extracts and aggregates recent sales orders from SQL Server database and posts new custom object records to HubSpot.</li>
+          <li>Creates and updates deals, patches deal properties (when applicable), and creates associations between line items, deals, and companies.</li>
         </ul>
         <p><strong>Outcome:</strong> Automates synchronization of Syspro sales order activity into HubSpot, ensuring up-to-date CRM records, reduced manual data entry, and consistent associations between line items, deals, and companies.</p>
       </div>
       <div class="rightSide">
         <p><strong>Technologies Used:</strong></p>
         <ul>
-          <li>C# (.NET 8)</li>
-          <li>Microsoft.Data.SqlClient</li>
           <li>HubSpot REST API</li>
-          <li>SQL Server/SSMS</li>
-          <li>HttpClient</li>
-          <li>System.Text.Json</li>
+          <li>.NET 10</li>
+          <li>C#</li>
+          <li>Microsoft.Data.SqlClient</li>
+          <li>JSONs</li>
         </ul>
       </div>
     </div>
@@ -342,28 +339,26 @@
 
   <li>
 
-    <button onclick="toggleDetails(this)">ImprovementApp [Internal idea tracking web app]</button>
+    <button onclick="toggleDetails(this)">ImprovementApp [Internal idea tracking web app]</button> <!--Ready for Check-->
 
     <div class="details">
       <div class="leftSide">
-        <p><strong>Short Description:</strong> Lightweight Blazor Interactive Server application to collect, review, and persist continuous improvement suggestions via a simple web form and list view.</p>
+        <p><strong>Short Description:</strong> Blazor Interactive Server application to collect and review continuous improvement suggestions via a web form.</p>
         <p><strong>Key Features:</strong></p>
         <ul>
-          <li>Submit suggestions with a typed model using <code>EditForm</code> (default date set to today).</li>
-          <li>View, annotate, mark winners, and save suggestions; persisted to JSON through the injected <code>WriteToJSON</code> service.</li>
+          <li>Submit suggestions via a web form that are later stored as JSONs on a shared drive</li>
+          <li>View, annotate, and mark winners on the results page with automatic JSON updates</li>
         </ul>
-        <p><strong>Outcome:</strong> A simple internal tool for capturing and managing improvement ideas with minimal setup and file-based persistence for easy inspection and export.</p>
+        <p><strong>Outcome:</strong> Replaced paper-based suggestion tracking with an internal web app, making it easy for employees across the company to submit and manage improvement ideas</p>
       </div>
       <div class="rightSide">
         <p><strong>Technologies Used:</strong></p>
         <ul>
           <li>.NET 8</li>
-          <li>C# 12</li>
+          <li>C#</li>
           <li>Blazor Interactive Server Components</li>
           <li>Razor Components</li>
-          <li>IJSRuntime</li>
-          <li>Bootstrap</li>
-          <li>JSON-based persistence</li>
+          <li>JSONs</li>
         </ul>
       </div>
     </div>
@@ -371,22 +366,24 @@
 
   <li>
 
-    <button onclick="toggleDetails(this)">Job Splitter [Multi-PDF job file seperator]</button>
+    <button onclick="toggleDetails(this)">Job Splitter [Multi-PDF job file seperator]</button> <!--Ready for Check-->
 
     <div class="details">
       <div class="leftSide">
-        <p><strong>Short Description:</strong> A Windows Forms utility that scans multi-job PDF travelers, extracts job numbers from pages, and splits each input PDF into separate per-job PDF files.</p>
+        <p><strong>Short Description:</strong> A Windows Forms utility that scans multi-job PDFs, extracts job numbers from pages, and splits each input PDF into separate per-job PDF files.</p>
         <p><strong>Key Features:</strong></p>
         <ul>
           <li>Automatically extracts job numbers from page text (using PDF text extraction) and splits PDFs into individual job files.</li>
           <li>Appends to existing job PDFs or creates new ones, saves results to a network SYSPRO folder, and moves processed files into month folders with UI progress reporting.</li>
         </ul>
-        <p><strong>Outcome:</strong> Automates and speeds up manual PDF splitting and organization — produces per-job PDFs named by job number, stored in the SYSPRO network folder, and archives originals into monthly directories.</p>
+        <p><strong>Outcome:</strong> Enables job lookup by job number, solving the previous difficulty of searching jobs by date</p>
+        <p><strong>Note:</strong> Program was initially successful using Adobe's API but shifted to internal application</p>
       </div>
       <div class="rightSide">
         <p><strong>Technologies Used:</strong></p>
         <ul>
-          <li>C# (.NET 8)</li>
+          <li>.NET 8</li>
+          <li>C#</li>
           <li>Windows Forms</li>
           <li>PDFPig</li>
           <li>PDFsharp</li>
@@ -397,27 +394,26 @@
 
   <li>
 
-    <button onclick="toggleDetails(this)">NonMetal Helper [Fast multi-functional variety tool]</button>
+    <button onclick="toggleDetails(this)">NonMetal Helper [Fast multi-functional variety tool]</button> <!--Ready for Check-->
 
     <div class="details">
       <div class="leftSide">
-        <p><strong>Short Description:</strong> A Windows Forms utility that streamlines pricing lookup, quote note generation, and quick access to commonly used files and websites for non-metal product lines.</p>
+        <p><strong>Short Description:</strong> A Windows Forms utility that streamlines daily tasks in an all in one UI</p>
         <p><strong>Key Features:</strong></p>
         <ul>
-          <li>Parses FSG part numbers, populates a pricing Excel matrix, reads calculated price tiers, and copies formatted price/quote blocks to the clipboard for fast quoting.</li>
-          <li>Creates configurable quick-access buttons from a JSON config and builds customizable quote notes; includes robust Excel interop cleanup (PID tracking + COM release) to avoid lingering processes.</li>
+          <li>Combines multiple other applications into a localized hub</li>
+          <li>Creates configurable quick-access buttons from a JSON config for various tasks</li>
         </ul>
-        <p><strong>Outcome:</strong> Faster, repeatable quoting and pricing workflows with reduced manual Excel errors and reliable Excel process cleanup; consistent customer quotes and easy extensibility via JSON-driven buttons.</p>
+        <p><strong>Outcome:</strong> Faster repeatable taks that allow for focusing on more complex issues</p>
       </div>
       <div class="rightSide">
         <p><strong>Technologies Used:</strong></p>
         <ul>
-          <li>C# (.NET 8)</li>
+          <li>.NET 8</li>
+          <li>C#</li>
           <li>Windows Forms</li>
           <li>Microsoft.Office.Interop.Excel</li>
-          <li>System.Text.Json</li>
-          <li>Windows clipboard & process APIs</li>
-          <li>P/Invoke for PID retrieval</li>
+          <li>JSON</li>
         </ul>
       </div>
     </div>
@@ -425,28 +421,24 @@
 
   <li>
 
-    <button onclick="toggleDetails(this)">Various File Organizers [Batch file renaming and rereouting programs]</button>
+    <button onclick="toggleDetails(this)">Various File Organizers [Batch file renaming and rereouting programs]</button>  <!--Ready for Check-->
 
     <div class="details">
       <div class="leftSide">
-        <p><strong>Short Description:</strong> A small .NET console utility that batch-processes files on a network share to standardize names, pad short filenames, and optionally move files into destination folders based on rule criteria.</p>
+        <p><strong>Short Description:</strong> Multiple simple programs that allow for bulk moving of files and renaming operations</p>
         <p><strong>Key Features:</strong></p>
         <ul>
-          <li>Batch rename logic that strips tokens like " OA" and "-OA", preserves extensions, and resolves name collisions by appending incremental suffixes.</li>
-          <li>Filename normalization that pads short names with leading zeros to enforce minimum length for consistent ordering.</li>
-          <li>Rule-based file routing: move files to different folders (Processed, Invoices, ShortNames, Archive) based on filename patterns, length, or other criteria.</li>
-          <li>Works against UNC network paths and includes safe existence checks to avoid overwriting and to handle duplicates.</li>
+          <li>Renaming logic that renames unstandardized files to standardized formats</li>
+          <li>Rule-based file routing that moves files to set folders based on set conditions</li>
         </ul>
-        <p><strong>Outcome:</strong> Automated cleanup and reorganization of files: consistent, human-readable filenames; reduced duplicate conflicts; files automatically moved to appropriate folders; saves manual effort and reduces errors.</p>
+        <p><strong>Outcome:</strong> Automated cleanup and reorganization of files that allows for quick adjustments for future scenarios</p>
       </div>
       <div class="rightSide">
         <p><strong>Technologies Used:</strong></p>
         <ul>
-          <li>C# 12</li>
-          <li>.NET 8 console app</li>
-          <li>System.IO (Directory, File, Path)</li>
-          <li>Runs against UNC shares</li>
-          <li>Minimal configuration done in code</li>
+          <li>.NET 8</li>
+          <li>C#</li>
+          <li>System.IO</li>
         </ul>
       </div>
     </div>
@@ -454,26 +446,24 @@
 
   <li>
 
-    <button onclick="toggleDetails(this)">Quote Noter [Standardized quote note generator]</button>
+    <button onclick="toggleDetails(this)">Quote Noter [Standardized quote note generator]</button>  <!--Ready for Check-->
 
     <div class="details">
       <div class="leftSide">
         <p><strong>Short Description:</strong> Desktop utility that generates standardized manufacturing quote notes from user-selected options and inputs, producing ready-to-copy text for quotes.</p>
         <p><strong>Key Features:</strong></p>
         <ul>
-          <li>Dynamic note generation based on checkboxes and text fields (lead time, tape & reel, tooling, PPAP, source inspection, etc.).</li>
-          <li>Input validation and dependent controls (enables/disables tape/reel fields, material/design lines for custom parts) and one-click copy-to-clipboard.</li>
+          <li>Dynamic note generation based on checkboxes and text fields</li>
+          <li>Auto formatting in addition to one-click copy-to-clipboard.</li>
         </ul>
         <p><strong>Outcome:</strong> Produces consistent, error-reducing quote notes quickly to speed quoting workflow and ensure standardized customer communications.</p>
       </div>
       <div class="rightSide">
         <p><strong>Technologies Used:</strong></p>
         <ul>
-          <li>C#</li>
-          <li>.NET 10</li>
           <li>Windows Forms (WinForms)</li>
-          <li>Visual Studio Designer</li>
-          <li>Clipboard API</li>
+          <li>C#</li>
+          <li>.NET 8</li>
         </ul>
       </div>
     </div>
@@ -481,26 +471,26 @@
 
   <li>
 
-    <button onclick="toggleDetails(this)">Run Rates [Department production tracking]</button>
+    <button onclick="toggleDetails(this)">Run Rates [Department production tracking]</button> <!--Ready for Check-->
 
     <div class="details">
       <div class="leftSide">
         <p><strong>Short Description:</strong> Windows Forms app for logging and managing department run-rate data into a central Excel workbook.</p>
         <p><strong>Key Features:</strong></p>
         <ul>
-          <li>Validated data entry into department-specific Excel tables (date, part, operator, station, operation, counts, run/setup times) with confirmation dialogs.</li>
-          <li>Manage operation standards (add new operations, update notes/dates) and automatically append history; safe Excel interop cleanup to avoid orphaned Excel processes.</li>
+          <li>Validated data entry into department-specific Excel tables based on pre-set dropdown lists</li>
+          <li>Allows for user entered nomenclature to remain consistent across departments</li>
+          <li>Run rates gathered from all departments can be centralized into a combine workspace</li>
         </ul>
-        <p><strong>Outcome:</strong> Streamlined, centralized run-rate data collection and standards maintenance, reducing manual errors and improving historical tracking.</p>
+        <p><strong>Outcome:</strong> Streamlined run-rate data collection, reducing manual errors and improving historical tracking.</p>
       </div>
       <div class="rightSide">
         <p><strong>Technologies Used:</strong></p>
         <ul>
+          <li>Windows Forms (WinForms)</li>
           <li>C#</li>
           <li>.NET 8</li>
-          <li>Windows Forms</li>
           <li>Microsoft.Office.Interop.Excel</li>
-          <li>Excel (network-shared workbook)</li>
         </ul>
       </div>
     </div>
@@ -508,27 +498,54 @@
 
   <li>
 
-    <button onclick="toggleDetails(this)">Syspro Mini [Quick inventory & pricing lookup]</button>
+    <button onclick="toggleDetails(this)">Syspro Mini [Quick inventory & pricing lookup]</button> <!--Ready for Check-->
 
     <div class="details">
       <div class="leftSide">
-        <p><strong>Short Description:</strong> Lightweight WinForms desktop utility to query the Syspro database for inventory and pricing, display results in a grid, and preview associated PDF drawings/quotes.</p>
+        <p><strong>Short Description:</strong> WinForms desktop utility for quick SYSPRO database lookups, providing a user-friendly interface for non-SQL users</p>
         <p><strong>Key Features:</strong></p>
         <ul>
-          <li>Parameterized queries for "Qty On Hand" and "Validate Pricing" with exact/wildcard filter support and a DataGridView result list.</li>
-          <li>Built-in PDF preview (WebView2) and open-in-default-app plus option to hide zero-quantity rows for focused reviews.</li>
+          <li>Parameterized queries for checks such as "Qty On Hand" and "Pricing" to look up multiple parts at once</li>
+          <li>Built-in PDF preview to see CAD drawings in addition to specific part data</li>
         </ul>
         <p><strong>Outcome:</strong> Fast internal tool that streamlines inventory and pricing validation, reduces manual lookups, and provides integrated PDF access for drawings/quotes.</p>
       </div>
       <div class="rightSide">
         <p><strong>Technologies Used:</strong></p>
         <ul>
+          <li>Windows Forms (WinForms)</li>
           <li>C#</li>
           <li>.NET 8</li>
-          <li>WinForms</li>
           <li>Microsoft.Data.SqlClient</li>
           <li>Microsoft.Web.WebView2</li>
           <li>SQL Server</li>
+        </ul>
+      </div>
+    </div>
+  </li>
+<!-----------------------------------------------------------------------------------------------------------------FDOT-->
+  <li>
+
+    <button onclick="toggleDetails(this)">Heavy Vehicle Simulator Monitoring Program [Quick inventory & pricing lookup]</button> <!--Ready for Check-->
+
+    <div class="details">
+      <div class="leftSide">
+        <p><strong>Short Description:</strong> LabVIEW program focused mainly on keeping tabs on machine health such as voltage and temperature</p>
+        <p><strong>Key Features:</strong></p>
+        <ul>
+          <li>Various real-time displays of controls system parameters</li>
+          <li>Integrated camera providing live machine feed for monitoring</li>
+          <li>Comprehensive logging of historical operational data</li>
+        </ul>
+        <p><strong>Outcome:</strong> A monitoring program that provides operators with an all-in-one HUD, allowing them to quickly check machine health parameters such as voltage, temperature, and operational status to ensure the system is running smoothly and without issues.</p>
+      </div>
+      <div class="rightSide">
+        <p><strong>Technologies Used:</strong></p>
+        <ul>
+          <li>LabVIEW</li>
+          <li>CRIOs</li>
+          <li>DAQs</li>
+          <li>ThermoCouples</li>
         </ul>
       </div>
     </div>
